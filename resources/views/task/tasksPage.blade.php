@@ -9,7 +9,7 @@
                     style="height:60px" alt="75x75">
                     <p class="p-3 d-inline-block m-0">{{ $task->name }}</p>
                     <div>
-                        <button class="btn btn-primary">View</button>
+                        <a href="{{ route("taskView", $task) }}" class="btn btn-primary">View</a>
                         <a href="{{ route("taskCompleted", $task) }}" class="btn btn-success">Completed</a>
                     </div>
 

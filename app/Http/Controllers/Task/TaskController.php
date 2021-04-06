@@ -17,9 +17,12 @@ class TaskController extends Controller
         $tasks =  $request->user()->task()->get();
         return view('task.tasksPage', ['tasks' => $tasks]);
     }
-    public function destroy(Request $request, Task $task)
+    public function destroy(Task $task)
     {
         $task->delete();
         return back();
+    }
+    public function show(Task $task){
+        return view('task.singleTask', ['task' => $task]); 
     }
 }

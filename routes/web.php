@@ -19,6 +19,7 @@ use App\Http\Controllers\Task\CreateTaskController;
 
 Route::get('/', [TaskController::class, 'index'])->name('tasksPage');
 Route::get('/task_completed/{task}', [TaskController::class, 'destroy'])->name('taskCompleted');
+Route::get('/task_view/{task}', [TaskController::class, 'show'])->name('taskView'); 
 
 Route::get('/about', function () {
     return view('about');
