@@ -14,9 +14,13 @@
                     </div>
 
                 </div>
+
             @empty
                 <p>No tasks, <a href="{{ route('createTask') }}"> add task</a></p>
             @endforelse
+            <div class="m-3 text-center">
+                {{ $tasks->links() }}
+            </div>
         </div>
     </div>
 

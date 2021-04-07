@@ -15,7 +15,9 @@ class TaskController extends Controller
     }
     public function index(Request $request)
     {
-        $tasks =  $request->user()->task()->get();
+        $tasks =  Task::where("user_id", $request->user()->id)->paginate(10);
+        //  $tasks = Task::get(); 
+        //$request->user()->task();
         return view('task.tasksPage', ['tasks' => $tasks]);
     }
     public function destroy(Task $task)
