@@ -7,7 +7,7 @@
             <h2 class="p-3 m-0 text-center badge-light border-bottom">{{ $task->name }}</h2>
             <p style="font-size:20px; min-height:80px;" class="badge-light p-2 text-center">{{ $task->body }}</p>
             <div class="float-right">
-                <a href="{{ route("taskView", $task) }}" class="btn btn-primary">Update</a>
+                <a href="{{ route('taskUpdate', $task) }}" class="btn btn-primary">Update</a>
                 <a href="{{ route('taskCompleted', $task) }}" class="btn btn-success">Completed</a>
             </div>
         </div>
