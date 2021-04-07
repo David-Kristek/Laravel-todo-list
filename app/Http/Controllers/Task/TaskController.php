@@ -23,7 +23,7 @@ class TaskController extends Controller
     public function destroy(Task $task)
     {
         $task->delete();
-        return back();
+        return redirect()->route("tasksPage");
     }
     public function show(Task $task)
     {
@@ -44,10 +44,20 @@ class TaskController extends Controller
     }
     public function remind(Task $task, Request $request)
     {
-        $userId = $request->user()->id;
+        if ($task->remindedBy($request->user(), $task->id)) {
+            return back();
+        }
         $task->remind()->create([
             'user_id' => $request->user()->id,
         ]);
+        return back();
+    }
+    public function notRemind(Task $task, Request $request)
+    {
+        if (!$task->remindedBy($request->user(), $task->id)) {
+            return back();
+        }
+        $task->remind()->delete(); 
         return back(); 
     }
 }

@@ -17,4 +17,9 @@ class Task extends Model
     {
         return $this->hasMany(remindTask::class); 
     }
+    public function remindedBy(User $user, $taskId){
+        $varA =  $this->remind->contains('user_id', $user->id);
+        $varB =  $this->remind->contains('task_id', $taskId);
+        return $varA && $varB; 
+    }
 }

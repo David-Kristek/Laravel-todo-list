@@ -6,7 +6,7 @@
         <div class="container p-5" style="background-color:rgb(240, 240, 240)">
             @forelse ($tasks as $task)
                 <div class="border badge-light rounded h5 d-flex flex-row justify-content-between pl-4 pr-4 align-items-center"
-                    style="height:60px" alt="75x75">
+                    style="height:60px; @if (!$task->remind->isEmpty()) border-left: 5px solid #123c24 !important @endif" alt="75x75">
                     <p class="p-3 d-inline-block m-0">{{ $task->name }}</p>
                     <div>
                         <a href="{{ route("taskView", $task) }}" class="btn btn-primary">View</a>
