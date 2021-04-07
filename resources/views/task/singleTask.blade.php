@@ -8,6 +8,8 @@
             <p style="font-size:20px; min-height:80px;" class="badge-light p-2 text-center">{{ $task->body }}</p>
             <div class="float-right">
                 <a href="{{ route('taskUpdate', $task) }}" class="btn btn-primary">Update</a>
+                {{-- @if($task->remind) --}}
+                <a href="{{ route('taskRemind', $task) }}" class="btn btn-secondary">Remind</a>
                 <a href="{{ route('taskCompleted', $task) }}" class="btn btn-success">Completed</a>
             </div>
         </div>

@@ -17,7 +17,7 @@ class TaskController extends Controller
     {
         $tasks =  Task::where("user_id", $request->user()->id)->paginate(10);
         //  $tasks = Task::get(); 
-        //$request->user()->task();
+        // $request->user()->task();
         return view('task.tasksPage', ['tasks' => $tasks]);
     }
     public function destroy(Task $task)
@@ -41,5 +41,13 @@ class TaskController extends Controller
         ]);
         $task->update($request->only('name', 'body'));
         return redirect()->route('taskView', $task);
+    }
+    public function remind(Task $task, Request $request)
+    {
+        $userId = $request->user()->id;
+        $task->remind()->create([
+            'user_id' => $request->user()->id,
+        ]);
+        return back(); 
     }
 }

@@ -43,6 +43,9 @@ class User extends Authenticatable
     public function task()
     {
         return $this->hasMany(Task::class);
-        
+    }
+    public function remind()
+    {
+        return $this->hasMany(remindTask::class); 
     }
 }

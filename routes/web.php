@@ -24,6 +24,8 @@ Route::get('/task_view/{task}', [TaskController::class, 'show'])->name('taskView
 Route::get('/task_update/{task}', [TaskController::class, 'update'])->name('taskUpdate'); 
 Route::post('/task_update/{task}', [TaskController::class, 'saveUpdate']); 
 
+Route::get('/task_remind/{task}', [TaskController::class, 'remind'])->name('taskRemind'); 
+
 Route::get('/about', function () {
     return view('about');
 })->name('about');

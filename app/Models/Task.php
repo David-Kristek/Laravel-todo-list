@@ -12,4 +12,9 @@ class Task extends Model
     protected $id = "id";
     protected $timestamp = true;
     protected $fillable = ['name', 'body'];
+    
+    public function remind()
+    {
+        return $this->hasMany(remindTask::class); 
+    }
 }
